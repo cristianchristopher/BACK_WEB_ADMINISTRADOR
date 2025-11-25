@@ -1,3 +1,5 @@
+
+/*
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Personal } from "../entities/personal";
@@ -15,8 +17,28 @@ export const AppDataSource = new DataSource({
   logging: false,
   entities: [
     Personal
-  
-  ],
+  */
+ // ],
+  //migrations: ["src/migrations/**/*.ts"],
+ // subscribers: [],
+//});
+
+//export default AppDataSource;
+
+import "reflect-metadata";
+import { DataSource } from "typeorm";
+import { Personal } from "../entities/personal";
+
+// ⚡ Conexión con Neon mediante DATABASE_URL
+export const AppDataSource = new DataSource({
+  type: "postgres",
+  url: process.env.DATABASE_URL,   // <-- Aquí va la URL completa de Neon
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  synchronize: false, // true solo en desarrollo
+  logging: false,
+  entities: [Personal],
   migrations: ["src/migrations/**/*.ts"],
   subscribers: [],
 });
