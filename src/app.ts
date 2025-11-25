@@ -7,15 +7,25 @@ import { AppDataSource } from "./config/appdatasource";
 
 const app: Application = express();
 
-// 🔹 CORS configurado
-app.use(cors({}));
+// 🔹 CORS configurado para Vercel + Render
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",             
+      "https://fronted-sage.vercel.app"    
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+  })
+);
 
 // 🔹 Middleware para JSON
 app.use(express.json());
 
 // 🔹 Rutas
 app.use("/api/v1/personal", personalRouter);
-app.use('/api/v1/auth', authRouter);
+app.use("/api/v1/auth", authRouter);
 
 // 🔹 Ruta no encontrada
 app.use((req: Request, res: Response) => {
@@ -43,7 +53,7 @@ export const startServer = async () => {
     console.log("📦 Conectado a PostgreSQL");
   } catch (error) {
     console.error("❌ Error al conectar a la BD:", error);
-    throw error; // OJO: si no lanzas el error, server.ts no sabrá que falló
+    throw error;
   }
 };
 
