@@ -12,7 +12,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",             
-      "https://fronted-sage.vercel.app"    
+      "https://fronted-1.vercel.app"    
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
