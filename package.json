@@ -15,6 +15,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/express": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
     "@types/node": "^22.15.30",
     "typescript": "^5.8.3"
   },
@@ -23,6 +24,7 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
     "pg": "^8.11.5",
     "typeorm": "^0.3.24"
   }

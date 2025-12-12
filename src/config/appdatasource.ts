@@ -51,6 +51,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import { Personal } from "../entities/personal";
 import dotenv from "dotenv";
+import { Carta } from "../entities/carta";
 
 dotenv.config();
 
@@ -74,7 +75,7 @@ export const AppDataSource = new DataSource({
     : false,                          // LOCAL no usa SSL
   synchronize: false,                 // true solo en desarrollo manual
   logging: false,
-  entities: [Personal],
+  entities: [Personal,Carta],
   migrations: ["src/migrations/**/*.ts"],
   subscribers: [],
 });

@@ -2,6 +2,7 @@ import express, { Application, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import personalRouter from "./routes/personal.route";
 import authRouter from "./routes/auth.route";
+import cartaRouter from "./routes/carta.route";
 
 import { AppDataSource } from "./config/appdatasource";
 
@@ -26,6 +27,7 @@ app.use(express.json());
 // 🔹 Rutas
 app.use("/api/v1/personal", personalRouter);
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/cartas",cartaRouter);
 
 // 🔹 Ruta no encontrada
 app.use((req: Request, res: Response) => {
